@@ -1,0 +1,30 @@
+a{
+    text-decoration: none !important;
+    color:white;
+}
+
+a:hover{
+    color:black;
+}
+
+.navactive{
+    color:aqua;
+}
+
+.formcard{
+    background-color: darkslategray !important;
+    color:white !important;
+}
+
+nav{
+    background-color: darkslategray;
+}
+
+body{
+    background-color:black;
+}
+
+.register-card{
+    background-color:darkslategrey;
+    color: white;
+}

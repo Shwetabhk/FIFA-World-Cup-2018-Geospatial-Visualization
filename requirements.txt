@@ -1,0 +1,9 @@
+django==1.11.4
+psycopg2==2.7.5
+psycopg2-binary==2.7.5
+django_cron==0.5.1
+objdict==0.4.4
+django-rest-framework==0.1.0
+requests==2.19.1
+iso639==0.1.4
+
