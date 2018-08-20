@@ -1,8 +1,9 @@
-from django.shortcuts import render,redirect
-from Home.models import Stadium,Channel,Team
-from Home.serializers import StadiumSerializer,TeamSerializer
+from django.shortcuts import render, redirect
+from Home.models import Stadium, Channel, Team
+from Home.serializers import StadiumSerializer, TeamSerializer
 from config import secrets
 import json
+
 
 def home(request):
     return render(request, "home.html", {})
@@ -11,10 +12,10 @@ def home(request):
 def teams(request):
     if not request.user.is_authenticated:
         return redirect("/login")
-    teams=Team.objects.all()
-    geoData=[]
+    teams = Team.objects.all()
+    geoData = []
     for team in teams:
-        data={
+        data = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
@@ -28,16 +29,16 @@ def teams(request):
             }
         }
         geoData.append(json.dumps(data))
-    return render(request, "teams.html", { "teams": geoData, "secretToken": secrets.MAPBOX_SECRETS })
+    return render(request, "teams.html", {"teams": geoData, "secretToken": secrets.MAPBOX_SECRETS})
 
 
 def stadiums(request):
     if not request.user.is_authenticated:
         return redirect("/login")
-    stadiums=Stadium.objects.all()
-    geoData=[]
+    stadiums = Stadium.objects.all()
+    geoData = []
     for stadium in stadiums:
-        data={
+        data = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
@@ -51,16 +52,16 @@ def stadiums(request):
             }
         }
         geoData.append(json.dumps(data))
-    return render(request,"stadiums.html",{ "stadiums": geoData, "secretToken": secrets.MAPBOX_SECRETS })
+    return render(request, "stadiums.html", {"stadiums": geoData, "secretToken": secrets.MAPBOX_SECRETS})
 
 
 def tv_channels(request):
     if not request.user.is_authenticated:
         return redirect("/login")
-    channels=Channel.objects.all()
-    geoData=[]
+    channels = Channel.objects.all()
+    geoData = []
     for channel in channels:
-        data={
+        data = {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
@@ -75,4 +76,4 @@ def tv_channels(request):
             }
         }
         geoData.append(json.dumps(data))
-    return render(request,"channels.html",{ "channels": geoData, "secretToken": secrets.MAPBOX_SECRETS })
+    return render(request, "channels.html", {"channels": geoData, "secretToken": secrets.MAPBOX_SECRETS})

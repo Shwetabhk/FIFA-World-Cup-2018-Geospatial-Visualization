@@ -11,6 +11,14 @@ a:hover{
     color:aqua;
 }
 
+.navbar{
+    zoom:90%;
+}
+
+.flagactive{
+    background-color:darkslategray;
+}
+
 .formcard{
     background-color: darkslategray !important;
     color:white !important;
@@ -23,7 +31,7 @@ a:hover{
 
 #map{
     width: 100%;
-    height: 500px;
+    height: 600px;
     position: relative;
   }
   

@@ -21,14 +21,13 @@ from Home.views import home, tv_channels, stadiums, teams
 from User.views import register_page, login_page, logout_page
 
 
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',home),
+    url(r'^$', home),
     url(r'^stadiums/$', stadiums),
     url(r'^teams/$', teams),
-    url(r'^channels/$',tv_channels),
-    url(r'^register/$',register_page),
-    url(r'^login',login_page),
-    url(r'^logout/$',logout_page)
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    url(r'^channels/$', tv_channels),
+    url(r'^register/$', register_page),
+    url(r'^login', login_page),
+    url(r'^logout/$', logout_page)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
