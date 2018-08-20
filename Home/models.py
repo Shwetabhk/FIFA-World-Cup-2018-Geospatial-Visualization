@@ -7,13 +7,15 @@ class Stadium(models.Model):
     latitude=models.FloatField(null=False)
     longitude=models.FloatField(null=False)
     image=models.CharField(max_length=1000,null=True)
-
+    
 
 class Team(models.Model):
     name=models.CharField(max_length=30,null=False)
     fifacode=models.CharField(max_length=30,null=False)
     iso2=models.CharField(max_length=30,null=False)
     flag=models.CharField(max_length=1000,null=True)
+    latitude=models.FloatField(null=False,default=0)
+    longitude=models.FloatField(null=False,default=0)
 
 
 class Channel(models.Model):

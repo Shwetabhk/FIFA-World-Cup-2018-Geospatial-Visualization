@@ -1,5 +1,6 @@
 from django_cron import CronJobBase, Schedule
-from Home.models import Teams
+from Home.models import Team
+from Home.util.country_coordinates import CountryCoordinates
 import os
 import json
 
@@ -17,12 +18,19 @@ class TeamDataAccumulate(CronJobBase):
             teams=data['teams']
             print(teams)
             for team in teams:
-                teams_object,flag=Teams.objects.get_or_create(
+                try:
+                    coordinates=CountryCoordinates.getCoordinates(team['name'])
+                except:
+                    coordinates=[0,0]
+                teams_object,flag=Team.objects.get_or_create(
                     id=team['id'],
                     name=team['name'],
                     fifacode=team['fifaCode'],
                     iso2=team['iso2'],
-                    flag=team['flag']
+                    flag=team['flag'],
+                    latitude=coordinates[0],
+                    longitude=coordinates[1]
                 )
+                print(teams_object)
         except Exception as e:
             print(e)
