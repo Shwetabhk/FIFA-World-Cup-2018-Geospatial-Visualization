@@ -39,13 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_cron',
     'User',
-    'Home'
+    'Home',
+    'Matches'
 ]
 
 CRON_CLASSES = [
 	'Home.crons.stadium_data_accumulate.StadiumDataAccumulate',
     'Home.crons.team_data_accumulate.TeamDataAccumulate',
-    'Home.crons.channel_data_accumulate.ChannelDataAccumulate'
+    'Home.crons.channel_data_accumulate.ChannelDataAccumulate',
+    'Matches.crons.match_data_accumulate.MatchDataAccumulate',
 ]
 
 MIDDLEWARE = [
@@ -114,7 +116,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+DATE_INPUT_FORMATS = ['%d-%m-%Y']
+
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 

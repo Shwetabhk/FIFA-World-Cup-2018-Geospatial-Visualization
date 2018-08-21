@@ -1,5 +1,6 @@
 from django_cron import CronJobBase, Schedule
 from Home.models import Channel
+from FIFA2018.data import Data
 from Home.util.country_coordinates import CountryCoordinates
 from Home.util.lang_iso import LangIso
 import os
@@ -13,9 +14,7 @@ class ChannelDataAccumulate(CronJobBase):
     code = 'Home.channeldata'
 
     def do(self):
-        THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
-        file = os.path.join(THIS_FOLDER, 'data.json')
-        data = json.load(open(file, 'r'))
+        data = Data.DATASET
         tvchannels = data['tvchannels']
         codes = LangIso.ISO639_2
         try:

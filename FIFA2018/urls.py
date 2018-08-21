@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from Home.views import home, tv_channels, stadiums, teams
 from User.views import register_page, login_page, logout_page
+from Matches.views import matches
 
 
 urlpatterns = [
@@ -27,6 +28,7 @@ urlpatterns = [
     url(r'^stadiums/$', stadiums),
     url(r'^teams/$', teams),
     url(r'^channels/$', tv_channels),
+    url(r'^matches/$', matches),
     url(r'^register/$', register_page),
     url(r'^login', login_page),
     url(r'^logout/$', logout_page)

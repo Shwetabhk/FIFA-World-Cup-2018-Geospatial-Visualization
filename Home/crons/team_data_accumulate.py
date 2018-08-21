@@ -1,6 +1,7 @@
 from django_cron import CronJobBase, Schedule
 from Home.models import Team
 from Home.util.country_coordinates import CountryCoordinates
+from FIFA2018.data import Data
 import os
 import json
 
@@ -13,9 +14,7 @@ class TeamDataAccumulate(CronJobBase):
 
     def do(self):
         try:
-            THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
-            file = os.path.join(THIS_FOLDER, 'data.json')
-            data = json.load(open(file, 'r'))
+            data = Data.DATASET
             teams = data['teams']
             print(teams)
             for team in teams:
