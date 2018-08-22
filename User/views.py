@@ -6,7 +6,7 @@ from User.forms import LoginForm, RegisterForm
 def login_page(request):
     if request.user.is_authenticated():
         return redirect("/")
-    form = LoginForm()
+    form = LoginForm(request.POST or None)
     if form.is_valid():
         User = get_user_model()
         email = form.cleaned_data.get("email")
