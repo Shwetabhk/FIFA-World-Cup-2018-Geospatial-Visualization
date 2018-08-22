@@ -51,75 +51,37 @@ var map = L.mapbox.map('map', 'mapbox.dark', {
 map.dragging.disable();
 map.touchZoom.disable();
 
-var match_id = ""
 var markers = L.mapbox.featureLayer().addTo(map);
 markers.setGeoJSON(data);
-
-var commentTemplate = UnderscoreTemplate(
-    '<div class="col-sm-12 mt-4" style="padding:6px; background-color:black; border: 2px solid aqua; color:white">\
-        <p><%-info%></p>\
-        ---<%-user_name%>\
-    </div>'
-)
-
-
 markers.on('click', function (e) {
     e.layer.closePopup();
 
     var feature = e.layer.feature;
     var match = feature.properties.name;
     var teams = feature.properties.home_team + " vs " + feature.properties.away_team + "( match no. " + match + ")";
+    console.log(teams);
     var home_flag = feature.properties.home_flag;
     var away_flag = feature.properties.away_flag;
     var home_score = feature.properties.home_result;
     var away_score = feature.properties.away_result;
     var channels = feature.properties.channels;
-    var stadium = feature.properties.stadium;
-    var round = feature.properties.round;
 
-
-    var targetDiv = document.getElementById("comments");
-    targetDiv.innerHTML = "";
-    $.get('/comments?', {match:match}, function (data) {
-        for (var i = 0; i < data.length; i++)
-            targetDiv.innerHTML = commentTemplate(data[i]) + targetDiv.innerHTML;
-    });
-    match_id = parseInt(match);
-
-    if (round === "round_16") {
-        round = "Round of 16";
-    }
-    else if (round === "round_8") {
-        round = "Quarter-Final";
-    }
-    else if (round === "round_4") {
-        round = "Semi-Final";
-    }
-    else if (round === "round_2" || round === "round_2_loser") {
-        round = "Final";
-    }
-    else {
-        round = "Group Stage "
-    }
 
     $("#marker_title").text(teams);
-    $("#round").text(round)
     $("#home_flag").attr("src", home_flag);
     $("#away_flag").attr("src", away_flag);
-    $("#stadium").text(stadium)
-    $("#score").text(feature.properties.home_team + " - " + home_score + "    |    " + feature.properties.away_team + " - " + away_score);
+    $("#score").html(feature.properties.home_team + " - " + home_score + "    |    " + feature.properties.away_team + " - " + away_score);
     const card_template = UnderscoreTemplate(
         '<div class="col-sm-3" style="margin:15px">\
             <div class="card">\
                 <img src="<%- icon %>" style="width: 95px; height: 50px">\
                 <div class="card-title">\
-                  <h4 class="mt-2">  <%- name %></h4>\
+                    <%- name %>\
                 </div>\
             </div>\
         </div>'
     );
-    var target = document.getElementById("channelcards");
-    target.innerHTML = "";
+    var target=document.getElementById("channelcards");
     for (var i = 0; i < channels.length; i++) {
         channel = {
             name: channels[i][0],
@@ -127,6 +89,7 @@ markers.on('click', function (e) {
         }
         target.innerHTML += card_template(channel);
     }
+    // $("#channels").
     $('#exampleModal').modal('show');
 });
 
@@ -146,15 +109,4 @@ $('.tournament a').on('click', function () {
         return (filter === 'all') ? true : f.properties.name === filter;
     });
     return false;
-});
-
-
-$('#form').submit(function (e) {
-    console.log($(this).serialize());
-    var targetDiv = document.getElementById("comments");
-    $.post('/matches/', $(this).serialize() + "&match=" + match_id, function (data) {
-        targetDiv.innerHTML = commentTemplate(data) + targetDiv.innerHTML;
-    });
-    document.getElementById("form").reset();
-    e.preventDefault();
 });

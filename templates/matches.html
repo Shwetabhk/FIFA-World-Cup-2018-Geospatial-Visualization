@@ -69,27 +69,44 @@
                         <li class="spacer">&nbsp;</li>
                     </ul>
                 </main>
-                <center>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" style="zoom:80%" role="dialog" aria-labelledby="exampleModalLabel">
-                        <div class="modal-dialog modal-lg" style="width:800px" role="document">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h3 id="marker_title" class=""></h3>
-                                    <img id="home_flag" src="" style="width:140px; height:100px" /> &nbsp;<strong>vs</strong>&nbsp;
-                                    <img id="away_flag" src="" style="width:150px; height:100px" />
-                                    <h3 id="score" style="padding:40px"></h3>
-                                    <br>
-                                    <h3>Channels : </h3>
-                                    <div id="channelcards" class="row">
+            </div>
 
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog modal-lg" style="min-width:1000px" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <div class="row">
+                                    <div class="col-sm-6" style="zoom:50%">
+                                        <center>
+                                            <h3 id="marker_title" class=""></h3>
+                                            <h3 id="round"></h3>
+                                            <img id="home_flag" src="" style="width:140px; height:100px" /> &nbsp;<strong>vs</strong>&nbsp;
+                                            <img id="away_flag" src="" style="width:150px; height:100px" />
+                                            <h3 id="score" style="padding:40px"></h3>
+                                            <br>
+                                            <h3>Stadium : </h3>
+                                            <h3 id="stadium"> </h3>
+                                            <br>
+                                            <h3>Channels : </h3>
+                                            <div id="channelcards" class="row"> </div>
+                                        </center>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <form id="form" method="POST">{% csrf_token %} {{form.as_p}}
+                                            <button type="submit" class="btn btn-dark"><span class="fa fa-paper-plane f-lg"></span>
+                                                Comment </button>
+                                        </form>
+                                        <div id="comments" class="row mt-4" style="height:300px;overflow-y: scroll"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </center>
+                </div>
             </div>
+
             <div class="col-sm-6 mt-4" style="zoom:70%">
                 <div id="map" class="mt-4">
                     <script>

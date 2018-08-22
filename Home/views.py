@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from Home.models import Stadium, Channel, Team
-from Home.serializers import StadiumSerializer, TeamSerializer
 from config import secrets
 import json
 

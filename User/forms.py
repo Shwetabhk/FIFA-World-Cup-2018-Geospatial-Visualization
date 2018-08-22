@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from User.util.option_creator import OptionCreator
 
 
-
+User=get_user_model()
 
 class LoginForm(forms.Form):
     email=forms.EmailField(widget=forms.EmailInput(attrs={"placeholder":"Enter Email","class":"form-control mb-2"}))
@@ -18,7 +18,7 @@ class RegisterForm(forms.Form):
     conpassword=forms.CharField(label='Confirm Password',widget=forms.PasswordInput(attrs={"placeholder":"Confirm Password","class":"form-control mb-2"}))
     team = forms.ChoiceField(widget=forms.Select(attrs={"class":"form-control mb-2"}), choices=OPTIONS)
 
-    User=get_user_model()
+  
         
     def clean_username(self):
         username=self.cleaned_data.get("username")
