@@ -40,20 +40,20 @@ class MatchDataAccumulate(CronJobBase):
                 date = match['date'][0:-3]+match['date'][-2:]
                 datetime_object = datetime.strptime(
                     date, "%Y-%m-%dT%H:%M:%S%z")
-                match_object,flag=Match.objects.get_or_create(
-                    id = match["name"],
-                    match_type = match["type"],
-                    home_team = self.get_team(match["home_team"]),
-                    away_team = self.get_team(match["away_team"]),
-                    home_result = match["home_result"],
-                    away_result = match["away_result"],
-                    date = datetime_object,
-                    stadium = self.get_stadium(match['stadium']),
+                match_object, flag = Match.objects.get_or_create(
+                    id=match["name"],
+                    match_type=match["type"],
+                    home_team=self.get_team(match["home_team"]),
+                    away_team=self.get_team(match["away_team"]),
+                    home_result=match["home_result"],
+                    away_result=match["away_result"],
+                    date=datetime_object,
+                    stadium=self.get_stadium(match['stadium']),
                     # channels = self.get_channels(match['channels']),
-                    finished = match['finished'],
-                    matchday = match['matchday'],
-                    tournament_round = match['round'],
-                    winner = self.get_team(winner)
+                    finished=match['finished'],
+                    matchday=match['matchday'],
+                    tournament_round=match['round'],
+                    winner=self.get_team(winner)
                 )
                 channels = self.get_channels(match['channels'])
                 match_object.channels.add(*channels)
@@ -62,20 +62,20 @@ class MatchDataAccumulate(CronJobBase):
 
     @staticmethod
     def get_stadium(s_id):
-        stadium=Stadium.objects.get(id = s_id)
+        stadium = Stadium.objects.get(id=s_id)
         return stadium
 
     @staticmethod
     def get_team(t_id):
         if t_id:
-            team=Team.objects.get(id = t_id)
+            team = Team.objects.get(id=t_id)
             return team
         return None
 
     @staticmethod
     def get_channels(c_list):
-        channels=[]
+        channels = []
         for c_id in c_list:
-            channel=Channel.objects.get(id = c_id)
+            channel = Channel.objects.get(id=c_id)
             channels.append(channel)
         return channels

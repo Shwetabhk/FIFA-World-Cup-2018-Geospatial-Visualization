@@ -42,115 +42,63 @@
         {% endif %}
     </nav>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row mt-2">
             <div class="col-sm-6" style="zoom:70%">
-                <h1>FIFA World Cup 2018 Bracket</h1>
-                <main id="tournament">
-                    <ul class="round round-1">
-                        <li class="spacer">&nbsp;</li>
-
-                        <li class="game game-top winner">Lousville <span>79</span></li>
-                        <li class="game game-spacer">&nbsp;</li>
-                        <li class="game game-bottom ">NC A&T <span>48</span></li>
-
-                        <li class="spacer">&nbsp;</li>
-
-                        <li class="game game-top winner">Colo St <span>84</span></li>
-                        <li class="game game-spacer">&nbsp;</li>
-                        <li class="game game-bottom ">Missouri <span>72</span></li>
-
-                        <li class="spacer">&nbsp;</li>
-
-                        <li class="game game-top ">Oklahoma St <span>55</span></li>
-                        <li class="game game-spacer">&nbsp;</li>
-                        <li class="game game-bottom winner">Oregon <span>68</span></li>
-
-                        <li class="spacer">&nbsp;</li>
-
-                        <li class="game game-top winner">Saint Louis <span>64</span></li>
-                        <li class="game game-spacer">&nbsp;</li>
-                        <li class="game game-bottom ">New Mexico St <span>44</span></li>
-
-                        <li class="spacer">&nbsp;</li>
-
-                        <li class="game game-top winner">Memphis <span>54</span></li>
-                        <li class="game game-spacer">&nbsp;</li>
-                        <li class="game game-bottom ">St Mary's <span>52</span></li>
-
-                        <li class="spacer">&nbsp;</li>
-
-                        <li class="game game-top winner">Mich St <span>65</span></li>
-                        <li class="game game-spacer">&nbsp;</li>
-                        <li class="game game-bottom ">Valparaiso <span>54</span></li>
-
-                        <li class="spacer">&nbsp;</li>
-
-                        <li class="game game-top winner">Creighton <span>67</span></li>
-                        <li class="game game-spacer">&nbsp;</li>
-                        <li class="game game-bottom ">Cincinnati <span>63</span></li>
-
-                        <li class="spacer">&nbsp;</li>
-
-                        <li class="game game-top winner">Duke <span>73</span></li>
-                        <li class="game game-spacer">&nbsp;</li>
-                        <li class="game game-bottom ">Albany <span>61</span></li>
-
+                <h4>FIFA World Cup 2018 Bracket</h4>
+                <div class="row filt">
+                    <button class="btn btn-outline-dark" data-filter="all" style="margin:6px">Show all</button>
+                    <button class="btn btn-outline-dark" data-filter="round_16" style="margin:6px">Round of 16</button>
+                    <button class="btn btn-outline-dark" data-filter="round_8" style="margin:6px">Quarter-Finals</button>
+                    <button class="btn btn-outline-dark" data-filter="round_4" style="margin:6px">Semi-Finals</button>
+                    <button class="btn btn-outline-dark" data-filter="round_2" style="margin:6px">Final</button>
+                </div>
+                <main id="tournament" class="tournament" style="background-color: darkslategray; color:white; padding:6px">
+                    <ul id="round-16" class="r16 round round-1">
                         <li class="spacer">&nbsp;</li>
                     </ul>
-                    <ul class="round round-2">
-                        <li class="spacer">&nbsp;</li>
-
-                        <li class="game game-top winner">Lousville <span>82</span></li>
-                        <li class="game game-spacer">&nbsp;</li>
-                        <li class="game game-bottom ">Colo St <span>56</span></li>
-
-                        <li class="spacer">&nbsp;</li>
-
-                        <li class="game game-top winner">Oregon <span>74</span></li>
-                        <li class="game game-spacer">&nbsp;</li>
-                        <li class="game game-bottom ">Saint Louis <span>57</span></li>
-
-                        <li class="spacer">&nbsp;</li>
-
-                        <li class="game game-top ">Memphis <span>48</span></li>
-                        <li class="game game-spacer">&nbsp;</li>
-                        <li class="game game-bottom winner">Mich St <span>70</span></li>
-
-                        <li class="spacer">&nbsp;</li>
-
-                        <li class="game game-top ">Creighton <span>50</span></li>
-                        <li class="game game-spacer">&nbsp;</li>
-                        <li class="game game-bottom winner">Duke <span>66</span></li>
-
+                    <ul id="round-8" class="r8 round round-2">
                         <li class="spacer">&nbsp;</li>
                     </ul>
-                    <ul class="round round-3">
-                        <li class="spacer">&nbsp;</li>
-
-                        <li class="game game-top winner">Lousville <span>77</span></li>
-                        <li class="game game-spacer">&nbsp;</li>
-                        <li class="game game-bottom ">Oregon <span>69</span></li>
-
-                        <li class="spacer">&nbsp;</li>
-
-                        <li class="game game-top ">Mich St <span>61</span></li>
-                        <li class="game game-spacer">&nbsp;</li>
-                        <li class="game game-bottom winner">Duke <span>71</span></li>
-
+                    <ul id="round-4" class="r4 round round-3">
                         <li class="spacer">&nbsp;</li>
                     </ul>
-                    <ul class="round round-4">
+                    <ul id="round-2" class="r2 round round-4">
                         <li class="spacer">&nbsp;</li>
-
-                        <li class="game game-top winner">Lousville <span>85</span></li>
-                        <li class="game game-spacer">&nbsp;</li>
-                        <li class="game game-bottom ">Duke <span>63</span></li>
-
+                    </ul>
+                    <ul id="winner" class="rw round round-4">
                         <li class="spacer">&nbsp;</li>
                     </ul>
                 </main>
+                <center>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" style="zoom:80%" role="dialog" aria-labelledby="exampleModalLabel">
+                        <div class="modal-dialog modal-lg" style="width:800px" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h3 id="marker_title" class=""></h3>
+                                    <img id="home_flag" src="" style="width:140px; height:100px" /> &nbsp;<strong>vs</strong>&nbsp;
+                                    <img id="away_flag" src="" style="width:150px; height:100px" />
+                                    <h3 id="score" style="padding:40px"></h3>
+                                    <br>
+                                    <h3>Channels : </h3>
+                                    <div id="channelcards" class="row">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </center>
             </div>
-            <div class="col-sm-6"></div>
+            <div class="col-sm-6 mt-4" style="zoom:70%">
+                <div id="map" class="mt-4">
+                    <script>
+                        var data = JSON.parse('{{matches}}'.replace(/&quot;/g, '"').replace(/&#39;/g, ""));
+                        secretToken = '{{secretToken}}';
+                    </script>
+                    <script src="{%static 'js/matches.js'%}"></script>
+                </div>
+            </div>
         </div>
     </div>
 </body>
