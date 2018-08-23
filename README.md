@@ -1,7 +1,19 @@
 # FIFA-World-Cup-2018-Geospatial-Visualization
 
 This app is made with the purpose of visualising a spatio temporal dataset of FIFA World Cup through Geospatial Visualization
-using map box.
+using map box. You can see various categories:
+
+	1.Teams
+	2.Stadiums
+	3.Channels
+	4.Matches
+	
+You can see the whole bracket of FIFA World Cup 2018 and click on "Plot Match" to create a marker on the stadium that match was held in and when you click on the marker you can see the details of the match and you can comment too.
+
+When you open the app you have to login first or you can click "create one" to register. The website is hosted on Heroku
+the link is
+	
+	https://gentle-chamber-24928.herokuapp.com/
 
 This app runs on Python 3.6. Make sure you have Python 3.6 and pip installed.
 
