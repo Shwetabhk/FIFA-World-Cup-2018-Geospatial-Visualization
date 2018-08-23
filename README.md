@@ -29,8 +29,10 @@ Open the cloned folder in the terminal(virtual environment) and run the followin
 
 		pip install -r requirements.txt
 
+
 #Run the following command
-    python manage.py collectstatic
+
+	python manage.py collectstatic
 
 # Run the server
 
