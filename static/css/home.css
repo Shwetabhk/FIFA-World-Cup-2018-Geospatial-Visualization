@@ -1,6 +1,7 @@
 a{
   text-decoration: none !important;
-  color:white !important;
+  color:white;
+  font-size: 1.2em;
   align-items: center;
   align-self: center;
   justify-content: center;
@@ -11,38 +12,73 @@ a:hover{
 }
 
 .navactive{
-  color:black;
+  color:#a4bbda;
 }
 
 .nav-item
 {
 text-align: center;
-
+padding-left: 15px;
 }
-
-nav{
-  zoom:70%;
-}
-
 
 .navbar
+{
+background-color: #64524f;
+}
+
+.stadium-back
+{
+  background-color: #404040;
+}
+
+.flagactive{
+  background-color:rgb(78, 33, 33);
+}
+
+.flagcard{
+  margin: 10px !important;
+}
+
+.stadium-card .card-img-top
+{
+ width: 500px;
+}
+
+.stadium-text
+{
+  text-align: center;
+  font-weight: bold;
+  color: maroon;
+}
+
+
+
+.formcard{
+  color:white !important;
+  margin-top: 80px;
+}
+
+.formcard .card-body
 {
   background-color: #64524f;
 }
 
-.flagactive{
-  background-color:darkslategray;
+.formcard .card-header 
+{
+  background-color: #64524f;
 }
 
-.formcard{
-  background-color: darkslategray !important;
-  color:white !important;
+.formcard .card-body .a 
+{
+  align-items: center;
+  align-self: center;
 }
 
 .register-card{
-  background-color:darkslategrey;
+  background-color:#64524f;
   color: white;
 }
+
 
 #map{
   width: 100%;
@@ -52,57 +88,66 @@ nav{
 
 
 .menu-ui {
-  background:#fff;
-  position:absolute;
-  top:100px;
-  left:10px;
-  z-index:1;
-  border-radius:3px;
-  width:120px;
-  border:1px solid rgba(0,0,0,0.4);
+background:#fff;
+position:absolute;
+top:100px;
+left:10px;
+margin-left:40px;
+z-index:1;
+border-radius:3px;
+width:120px;
+border:1px solid rgba(0,0,0,0.4);
 }
-   
 .menu-ui a {
-    font-size:13px;
-    color:#404040;
-    display:block;
-    margin:0;padding:0;
-    padding:10px;
-    text-decoration:none;
-    border-bottom:1px solid rgba(0,0,0,0.25);
-    text-align:center;
-    }
-    .menu-ui a:first-child {
-    border-radius:3px 3px 0 0;
-    }
-    .menu-ui a:last-child {
-    border:none;
-    border-radius:0 0 3px 3px;
-    }
-    .menu-ui a:hover {
-    background:#f8f8f8;
-    color:#404040;
-    cursor: pointer !important;
-    }
-    .menu-ui a.active,
-    .menu-ui a.active:hover {
-    background:#3887BE;
-    color:#FFF;
-}
-  
-.info {
-  position:absolute;
-  top:100px;
-  left:10px;
-}
-
-.info div {
-  background:#fff;
+  font-size:13px;
+  color:#404040;
+  display:block;
+  margin:0;padding:0;
   padding:10px;
-  border-radius:3px;
-}
-  
+  text-decoration:none;
+  border-bottom:1px solid rgba(0,0,0,0.25);
+  text-align:center;
+  }
+  .menu-ui a:first-child {
+  border-radius:3px 3px 0 0;
+  }
+  .menu-ui a:last-child {
+  border:none;
+  border-radius:0 0 3px 3px;
+  }
+  .menu-ui a:hover {
+  background:#f8f8f8;
+  color:#404040;
+  cursor: pointer !important;
+  }
+  .menu-ui a.active,
+  .menu-ui a.active:hover {
+  background:#64524f;
+  color:#FFF;
+  }
 
+.tournament{
+  border-radius: 12px;
+  background-color:#111111 ;
+  color:white;
+  padding:6px;
+}
+
+.info {
+position:absolute;
+top:100px;
+left:10px;
+}
+.info div {
+background:#ffff;
+padding:10px;
+border-radius:3px;
+}
+
+.center{
+  text-align: center;
+  display: block;
+}
 
 main{
   display:flex;
@@ -124,10 +169,14 @@ main{
     flex-grow:1;
   }
 
+
 body{
+
   font-family:sans-serif;
   font-size:small;
   line-height:1.4em;
+  background-attachment: fixed;
+
 }
 
 li.game{
@@ -154,11 +203,20 @@ li.game{
   }
 
 .modal-body{
-background-color:darkslategray;
-color:whitesmoke;
+background-color: rgb(160, 157, 157);
+color:black;
 align-items: center;
 }
 
 #channelcards{
 color: black;
+}
+
+.comments{ 
+  background-color: #404040;
+  margin-left:15px;
+  padding: 10px;
+  border: 1px solid gainsboro; 
+  border-radius: 10px;
+  color:floralwhite;
 }
