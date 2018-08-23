@@ -1,6 +1,8 @@
 var apiKey = secretToken;
 var mapCenter = [55.715765, 37.551521708]
 
+$("#exampleModal").remove()
+
 L.mapbox.accessToken = apiKey;
 
 var map = L.mapbox.map('map', 'mapbox.dark', {
@@ -18,11 +20,12 @@ markers.on('click', function (e) {
     var title = feature.properties.title;
     var content = feature.properties.description;
     var city = feature.properties.address;
+    
+    $("#cat-image").remove();
 
     $("#marker_title").text(title);
     $("#marker_city").text(city);
     $("#marker_content").attr('src', content);
-    $("#marker_content").attr('style', "width: 500px; height:400px");
 });
 
 $('.menu-ui a').on('click', function () {

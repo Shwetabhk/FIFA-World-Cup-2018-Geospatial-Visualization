@@ -58,7 +58,7 @@ markers.setGeoJSON(data);
 var commentTemplate = UnderscoreTemplate(
     '<div class="col-sm-12 mt-4 comments">\
         <p><%-info%></p>\
-        ---<%-user_name%>\
+        ---<%-user_name%>&nbsp;&nbsp;<%-date%>\
     </div>'
 )
 
@@ -80,9 +80,11 @@ markers.on('click', function (e) {
 
     var targetDiv = document.getElementById("comments");
     targetDiv.innerHTML = "";
-    $.get('/comments?', {match:match}, function (data) {
-        for (var i = 0; i < data.length; i++)
+    $.get('/comments?', { match: match }, function (data) {
+        for (var i = 0; i < data.length; i++) {
+            data[i].date = new Date(data[i].date).toLocaleString();
             targetDiv.innerHTML = commentTemplate(data[i]) + targetDiv.innerHTML;
+        }
     });
     match_id = parseInt(match);
 
@@ -151,6 +153,7 @@ $('.tournament a').on('click', function () {
 $('#form').submit(function (e) {
     var targetDiv = document.getElementById("comments");
     $.post('/matches/', $(this).serialize() + "&match=" + match_id, function (data) {
+        data.date = new Date(data.date).toLocaleString();
         targetDiv.innerHTML = commentTemplate(data) + targetDiv.innerHTML;
     });
     document.getElementById("form").reset();
