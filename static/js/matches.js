@@ -48,8 +48,6 @@ var map = L.mapbox.map('map', 'mapbox.dark', {
     zoomControl: true
 }).setView([mapCenter[0], mapCenter[1]], 4);
 
-map.dragging.disable();
-map.touchZoom.disable();
 
 var match_id = ""
 var markers = L.mapbox.featureLayer().addTo(map);

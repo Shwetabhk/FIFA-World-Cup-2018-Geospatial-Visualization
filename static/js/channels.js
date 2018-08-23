@@ -7,9 +7,6 @@ var map = L.mapbox.map('map', 'mapbox.dark', {
     zoomControl: true
 }).setView([mapCenter[0], mapCenter[1]], 2);
 
-map.dragging.disable();
-map.touchZoom.disable();
-
 var markers = L.mapbox.featureLayer().addTo(map);
 markers.setGeoJSON(data);
 markers.on('click', function (e) {
