@@ -3,7 +3,7 @@
 This app is made with the purpose of visualising a spatio temporal dataset of FIFA World Cup through Geospatial Visualization
 using map box.
 
-This APP runs on Python 3.6. Make sure you have Python 3.6 and pip installed.
+This app runs on Python 3.6. Make sure you have Python 3.6 and pip installed.
 
 
 # Clone the Repository
