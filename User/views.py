@@ -12,15 +12,10 @@ def login_page(request):
         email = form.cleaned_data.get("email")
         try:
             username = User.objects.get(email=email.lower()).username
-            print(username)
         except:
             username = None
-            print("wrong")
-        print(email)
         password = form.cleaned_data.get("password")
-        print(password)
         user = authenticate(request, username=username, password=password)
-        print(user)
         if user is not None:
             login(request, user)
             return redirect("/")
@@ -33,7 +28,6 @@ def register_page(request):
     User = get_user_model()
     form = RegisterForm(request.POST or None)
     if form.is_valid():
-        print(form.cleaned_data)
         username = form.cleaned_data.get("username")
         password = form.cleaned_data.get("password")
         email = form.cleaned_data.get("email")

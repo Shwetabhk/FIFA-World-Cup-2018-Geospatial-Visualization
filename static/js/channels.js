@@ -5,14 +5,13 @@ L.mapbox.accessToken = apiKey;
 
 var map = L.mapbox.map('map', 'mapbox.dark', {
     zoomControl: true
-}).setView([mapCenter[0], mapCenter[1]], 1);
+}).setView([mapCenter[0], mapCenter[1]], 2);
 
 map.dragging.disable();
 map.touchZoom.disable();
 
 var markers = L.mapbox.featureLayer().addTo(map);
 markers.setGeoJSON(data);
-console.log(markers);
 markers.on('click', function (e) {
     e.layer.closePopup();
 

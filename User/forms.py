@@ -1,6 +1,5 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from User.util.option_creator import OptionCreator
 
 
 User=get_user_model()
@@ -11,12 +10,10 @@ class LoginForm(forms.Form):
 
 
 class RegisterForm(forms.Form):
-    OPTIONS=OptionCreator.create()
     username=forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Enter Username","class":"form-control mb-2"}))
     email=forms.EmailField(widget=forms.EmailInput(attrs={"placeholder":"Enter E-mail","class":"form-control mb-2"}))
     password=forms.CharField(widget=forms.PasswordInput(attrs={"placeholder":"Enter Password","class":"form-control mb-2"}))
     conpassword=forms.CharField(label='Confirm Password',widget=forms.PasswordInput(attrs={"placeholder":"Confirm Password","class":"form-control mb-2"}))
-    team = forms.ChoiceField(widget=forms.Select(attrs={"class":"form-control mb-2"}), choices=OPTIONS)
 
   
         

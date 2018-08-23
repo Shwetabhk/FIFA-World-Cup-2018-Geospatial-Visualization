@@ -1,6 +1,6 @@
 const targetElement = document.getElementById('flagcards')
 const template = UnderscoreTemplate(
-    '<button id="filt" class="btn btn-light"  data-filter="<%- properties.title %>"\
+    '<button id="filt" class="btn flagcard"  data-filter="<%- properties.title %>"\
         <div class="col-sm-12">\
             <div class="card">\
                 <img src="<%- properties.address %>" style="width: 95px; height: 50px">\
@@ -47,7 +47,6 @@ $('.filt button').on('click', function () {
     var filter = $(this).data('filter');
     $(this).addClass('flagactive').siblings().removeClass('flagactive');
     markers.setFilter(function (f) {
-        console.log(filter);
         return (filter === 'all') ? true : f.properties.title === filter;
     });
     return false;

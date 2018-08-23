@@ -25,12 +25,10 @@ class MatchDataAccumulate(CronJobBase):
                     matches.append(match)
             knockouts = data['knockout']
             for knockout in knockouts:
-                print(knockout)
                 knockout_matches = knockouts[knockout]['matches']
                 for match in knockout_matches:
                     match["round"] = knockout
                     matches.append(match)
-            print(matches)
             for match in matches:
                 winner = None
                 if(match['home_result'] > match['away_result']):

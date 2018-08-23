@@ -54,7 +54,6 @@ def matches(request):
     elif request.method == "POST":
         form = CommentForm(request.POST or None)
         match = int(request.POST.get('match'))
-        print(match)
         match_obj = Match.objects.get(id=match)
         if form.is_valid():
             comment = form.cleaned_data.get("comment")
@@ -74,5 +73,4 @@ def comments(request):
         match = Match.objects.get(id=match)
         comments = Comment.objects.filter(match_id=match).all()
         comments = CommentSerializer(comments, many=True).data
-        print(comments)
         return JsonResponse(comments,safe=False)

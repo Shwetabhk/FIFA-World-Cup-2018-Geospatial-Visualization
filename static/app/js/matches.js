@@ -1,5 +1,5 @@
 const template = UnderscoreTemplate(
-    '<a href="#" data-filter="<%-properties.name%>" style="color:aqua"><span class="fa fa-check-circle fa-lg"></span> Plot Match</a>\
+    '<a href="#" data-filter="<%-properties.name%>" style="color:#93a647;"><span class="fa fa-check-circle fa-lg"></span> Plot Match</a>\
      <li class="game game-top winner"><%-properties.home_team%> <span><%-properties.home_result%></span></li>\
      <li class="game game-spacer">&nbsp;</li>\
      <li class="game game-bottom "><%-properties.away_team%> <span><%-properties.away_result%></span></li>\
@@ -56,9 +56,9 @@ var markers = L.mapbox.featureLayer().addTo(map);
 markers.setGeoJSON(data);
 
 var commentTemplate = UnderscoreTemplate(
-    '<div class="col-sm-12 mt-4" style="padding:6px; background-color:black; border: 2px solid aqua; color:white">\
+    '<div class="col-sm-12 mt-4 comments">\
         <p><%-info%></p>\
-        ---<%-user_name%>\
+        ---<%-user_name%>&nbsp;&nbsp;<%-date%>\
     </div>'
 )
 
@@ -80,9 +80,11 @@ markers.on('click', function (e) {
 
     var targetDiv = document.getElementById("comments");
     targetDiv.innerHTML = "";
-    $.get('/comments?', {match:match}, function (data) {
-        for (var i = 0; i < data.length; i++)
+    $.get('/comments?', { match: match }, function (data) {
+        for (var i = 0; i < data.length; i++) {
+            data[i].date = new Date(data[i].date).toLocaleString();
             targetDiv.innerHTML = commentTemplate(data[i]) + targetDiv.innerHTML;
+        }
     });
     match_id = parseInt(match);
 
@@ -109,7 +111,7 @@ markers.on('click', function (e) {
     $("#stadium").text(stadium)
     $("#score").text(feature.properties.home_team + " - " + home_score + "    |    " + feature.properties.away_team + " - " + away_score);
     const card_template = UnderscoreTemplate(
-        '<div class="col-sm-3" style="margin:15px">\
+        '<div class="col-sm-3 center" style="margin:15px">\
             <div class="card">\
                 <img src="<%- icon %>" style="width: 95px; height: 50px">\
                 <div class="card-title">\
@@ -133,7 +135,6 @@ markers.on('click', function (e) {
 $('.filt button').on('click', function () {
     var filter = $(this).data('filter');
     $(this).addClass('active').siblings().removeClass('active');
-    console.log(filter);
     markers.setFilter(function (f) {
         return (filter === 'all') ? true : f.properties.round === filter;
     });
@@ -150,9 +151,9 @@ $('.tournament a').on('click', function () {
 
 
 $('#form').submit(function (e) {
-    console.log($(this).serialize());
     var targetDiv = document.getElementById("comments");
     $.post('/matches/', $(this).serialize() + "&match=" + match_id, function (data) {
+        data.date = new Date(data.date).toLocaleString();
         targetDiv.innerHTML = commentTemplate(data) + targetDiv.innerHTML;
     });
     document.getElementById("form").reset();

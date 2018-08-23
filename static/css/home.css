@@ -1,51 +1,67 @@
 a{
-    text-decoration: none !important;
-    color:white;
+  text-decoration: none !important;
+  color:white !important;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
 }
 
 a:hover{
-    color:black;
+  color: #dbd45e;
 }
 
 .navactive{
-    color:aqua;
+  color:black;
 }
 
-.navbar{
-    zoom:85%;
+.nav-item
+{
+text-align: center;
+
+}
+
+nav{
+  zoom:70%;
+}
+
+
+.navbar
+{
+  background-color: #64524f;
 }
 
 .flagactive{
-    background-color:darkslategray;
+  background-color:darkslategray;
 }
 
 .formcard{
-    background-color: darkslategray !important;
-    color:white !important;
+  background-color: darkslategray !important;
+  color:white !important;
 }
 
 .register-card{
-    background-color:darkslategrey;
-    color: white;
+  background-color:darkslategrey;
+  color: white;
 }
 
 #map{
-    width: 100%;
-    height: 800px;
-    position: relative;
-  }
-  
+  width: 100%;
+  height: 800px;
+  position: relative;
+}
+
 
 .menu-ui {
-background:#fff;
-position:absolute;
-top:100px;
-left:10px;
-z-index:1;
-border-radius:3px;
-width:120px;
-border:1px solid rgba(0,0,0,0.4);
+  background:#fff;
+  position:absolute;
+  top:100px;
+  left:10px;
+  z-index:1;
+  border-radius:3px;
+  width:120px;
+  border:1px solid rgba(0,0,0,0.4);
 }
+   
 .menu-ui a {
     font-size:13px;
     color:#404040;
@@ -72,78 +88,77 @@ border:1px solid rgba(0,0,0,0.4);
     .menu-ui a.active:hover {
     background:#3887BE;
     color:#FFF;
-    }
-
+}
+  
 .info {
-position:absolute;
-top:100px;
-left:10px;
+  position:absolute;
+  top:100px;
+  left:10px;
 }
+
 .info div {
-background:#fff;
-padding:10px;
-border-radius:3px;
+  background:#fff;
+  padding:10px;
+  border-radius:3px;
+}
+  
+
+
+main{
+  display:flex;
+  flex-direction:row;
+}
+.round{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  width:200px;
+  list-style:none;
+  padding:0;
+}
+  .round .spacer{ flex-grow:1; }
+  .round .spacer:first-child,
+  .round .spacer:last-child{ flex-grow:.5; }
+
+  .round .game-spacer{
+    flex-grow:1;
+  }
+
+body{
+  font-family:sans-serif;
+  font-size:small;
+  line-height:1.4em;
 }
 
+li.game{
+  padding-left:20px;
+}
 
-/*
- *  Flex Layout Specifics
-*/
-main{
-    display:flex;
-    flex-direction:row;
+  li.game.winner{
+    font-weight:bold;
   }
-  .round{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    width:200px;
-    list-style:none;
-    padding:0;
+  li.game span{
+    float:right;
+    margin-right:5px;
   }
-    .round .spacer{ flex-grow:1; }
-    .round .spacer:first-child,
-    .round .spacer:last-child{ flex-grow:.5; }
-  
-    .round .game-spacer{
-      flex-grow:1;
-    }
-  
-  /*
-   *  General Styles
-  */
-  body{
-    font-family:sans-serif;
-    font-size:small;
-    padding:10px;
-    line-height:1.4em;
+
+  li.game-top{ border-bottom:1px solid #aaa; }
+
+  li.game-spacer{ 
+    border-right:1px solid #aaa;
+    min-height:40px;
   }
-  
-  li.game{
-    padding-left:20px;
+
+  li.game-bottom{ 
+    border-top:1px solid #aaa;
   }
-  
-    li.game.winner{
-      font-weight:bold;
-    }
-    li.game span{
-      float:right;
-      margin-right:5px;
-    }
-  
-    li.game-top{ border-bottom:1px solid #aaa; }
-  
-    li.game-spacer{ 
-      border-right:1px solid #aaa;
-      min-height:40px;
-    }
-  
-    li.game-bottom{ 
-      border-top:1px solid #aaa;
-    }
-  
+
 .modal-body{
-  background-color:darkslategray;
-  color:whitesmoke;
-  align-items: center;
+background-color:darkslategray;
+color:whitesmoke;
+align-items: center;
+}
+
+#channelcards{
+color: black;
 }

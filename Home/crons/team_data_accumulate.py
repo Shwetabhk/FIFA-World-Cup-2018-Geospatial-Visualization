@@ -16,7 +16,6 @@ class TeamDataAccumulate(CronJobBase):
         try:
             data = Data.DATASET
             teams = data['teams']
-            print(teams)
             for team in teams:
                 try:
                     coordinates = CountryCoordinates.getCoordinates(
@@ -32,6 +31,5 @@ class TeamDataAccumulate(CronJobBase):
                     latitude=coordinates[0],
                     longitude=coordinates[1]
                 )
-                print(teams_object)
         except Exception as e:
             print(e)
