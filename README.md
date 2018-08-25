@@ -32,7 +32,7 @@ open your working directory in the terminal and run the following commands:
 
 		python -m virtualenv Skylark
 
-		source sirius/bin/activate
+		source Skylark/bin/activate
 
 
 # Install the requirements
